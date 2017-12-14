@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  test:
+    image: ruby 
+    working_dir: /usr/local/src
+    command: bundle exec rspec -fd
+    volumes:
+      - .:/usr/local/src
+      - bundle:/usr/local/bundle
+    environment:
+      - RACK_ENV=test
+volumes:
+  bundle: {}
